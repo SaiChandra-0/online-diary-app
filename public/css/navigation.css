@@ -1,0 +1,12 @@
+nav {
+  font-size: large;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: aquamarine; */
+}
+.login {
+  flex: 0.2;
+  display: flex;
+  justify-content: space-around;
+}

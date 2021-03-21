@@ -1,0 +1,19 @@
+<%- include("./includes/head.ejs") %>
+<%- include("./includes/navigation.ejs") %>
+    <% if(!isAuthenticated) { %>
+        <div class="jumbotron">
+            <h1>Online Diary</h1>
+            <p>Write your Daily Diary and see them whenever you want</p>
+        </header>
+    <%} else{%>
+        <div class="jumbotron">
+            <h1>Welcome <%= username %></h1>
+        </div>
+        <br><br><br>
+        <main>
+            <a href="/todays-note" class="btn btn-primary" > Write Today's Diary</a>
+            
+            <a href="/old-diary" class="btn btn-primary" > Find Old Notes</a>
+        </main>
+    <%}%>
+<%- include("./includes/footer.ejs") %>

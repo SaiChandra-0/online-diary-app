@@ -1,0 +1,14 @@
+</head>
+<body>
+    <div class="container">
+    <nav class="nav">
+        <div><a href = "/"  class = "nav-link"> Home </a></div>
+        <%if (!isAuthenticated){%> 
+            <div class = "login">
+                <div><a href="/auth/login"  class = "nav-link"> Login </a></div>
+                <div><a href="/auth/signup"  class = "nav-link"> Sign Up </a></div>
+            </div>
+        <%} else {%>
+            <div><a href="/auth/logout"  class = "nav-link"> Logout </a></div>
+        <% } %>
+    </nav>
