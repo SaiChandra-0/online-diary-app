@@ -5,9 +5,10 @@ exports.getTodaysNote = (req, res) => {
 };
 
 exports.postTodaysNote = (req, res) => {
-  userModel.insert(req.session.userId, req.body.note, (err) => {
-    if (err) console.log(err);
-  });
+  if (req.body.note !== "")
+    userModel.insert(req.session.userId, req.body.note, (err) => {
+      if (err) console.log(err);
+    });
   res.redirect("/");
 };
 
@@ -17,7 +18,7 @@ exports.getOldNotes = (req, res) => {
 
 exports.getOldData = (req, res) => {
   const date = req.query.date;
-  // console.log(typeof date);
+  // console.log(date);
   userModel.getData(req.session.userId, date, (err, result) => {
     // console.log(result);
     res.json(result);

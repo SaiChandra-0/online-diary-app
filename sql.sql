@@ -1,13 +1,14 @@
 create table users(
        id INT PRIMARY KEY AUTO_INCREMENT,
-       username VARCHAR(15) NOT NULL UNIQUE KEY,
-       password VARCHAR(255) NOT NULL
+       username VARCHAR(255) NOT NULL UNIQUE KEY,
+       email VARCHAR(255) NOT NULL UNIQUE KEY,
+       password VARCHAR(80) NOT NULL
 );
 
 create table data(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    info TEXT,
-    created_at DATE,
+    note TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     user_id INT,
     FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
 );

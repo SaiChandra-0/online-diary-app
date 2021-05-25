@@ -1,9 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 body {
-  /* background-image: url("https://images.unsplash.com/photo-1571916234808-adf437ac1644?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1075&q=80"); */
-  background-color: beige;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100vh;
+  background-image: url("https://miro.medium.com/max/10368/0*nSax3wY2s36uv9JL");
+  font-family: "Roboto", sans-serif;
   background-size: cover;
-  background-blend-mode: soft-light;
+}
+.card {
+  width: 40vw;
+  min-width: 370px;
+  height: max-content;
+  background: rgb(32, 32, 78);
+  margin: 0 auto;
+  margin-top: 10vh;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+.card h1 {
+  color: white;
+  padding: 20px 0 60px 0;
+  /* text-align: center; */
+}
+.switch-login-signup {
+  margin-top: 5px;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+.btn,
+a.btn {
+  background-color: white;
+  color: rgb(32, 32, 78);
+  text-align: center;
+  border-style: none;
+  font-size: larger;
+  font-weight: 700;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.btn:hover,
+a.btn:hover {
+  cursor: pointer;
+  background-color: rgb(50, 50, 128);
+  color: rgb(255, 255, 255);
 }

@@ -1,11 +1,11 @@
 <%- include("./includes/head.ejs") %>
 <%- include("./includes/navigation.ejs") %>
-
-    <label for="date"><h1>Choose a Date</h1></label><br>
-    <input type="date" name="date" id="date" >
-    <button id="btn" class="btn btn-primary">Find</button>
-    <div id="note"></div>
-
+    <div class="old">
+        <label for="date">Choose a Date</label><br>
+        <input type="date" name="date" id="date" />
+        <button id="btn" class="btn btn-primary">Find</button>
+        <div id="note"></div>
+    </div>
     <script>
         const num=5;
         const btn=document.getElementById("btn");
@@ -17,16 +17,21 @@
                 note.removeChild(note.firstChild);
             }
 
-             await fetch(`/get-data?date=${date.value}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        // console.log(data[0].info);
-                        for(let i=0;i<data.length;i++){
-                            const para = document.createElement("p");
-                            para.textContent=data[i].info;
-                            note.appendChild(para);
-                        }
-                    });
+            fetch(`/get-data?date=${date.value}`)
+                .then(res => res.json())
+                .then(data => {
+                    if(data.length==0){
+                        const para = document.createElement("p");
+                        para.textContent="No Data Found";
+                        note.appendChild(para);
+                        return;
+                    }
+                    for(let i=0;i<data.length;i++){
+                        const para = document.createElement("p");
+                        para.textContent=data[i].note;
+                        note.appendChild(para);
+                    }
+                });
         });
         
         

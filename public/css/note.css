@@ -1,0 +1,15 @@
+.note-form {
+  margin: 10vh 20vw;
+}
+.note-form label {
+  color: white;
+  font-size: 2rem;
+}
+
+.note-form textarea {
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 5px solid white;
+  color: white;
+  font-size: xx-large;
+  width: 75vw;
+}

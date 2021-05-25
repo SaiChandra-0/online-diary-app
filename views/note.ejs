@@ -1,12 +1,12 @@
 <%- include("./includes/head.ejs") %>
 <%- include("./includes/navigation.ejs") %>
-    <div >
-    <form action="/todays-note" method="post">
-        <div class="mb-3">
-        <label for="note">Write Here: </label><br><br>
+    <div class="note-form">
+        <form action="/todays-note" method="post">
+            <label class="note-label" for="note">Type Here: </label><br><br>
             <textarea name="note" id="note" cols="100" rows="10"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+            <br><br>
+            <button type="submit" class="btn">Submit</button>
+        </form>
     </div>
+    
 <%- include("./includes/footer.ejs") %>

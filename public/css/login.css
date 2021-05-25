@@ -1,0 +1,32 @@
+.form-element {
+  padding-bottom: 30px;
+}
+
+.form-label {
+  font-size: larger;
+  font-weight: 500;
+  color: white;
+}
+.form-element input {
+  width: 60%;
+  margin-left: 20px;
+  height: 30px;
+  border-style: none;
+  border-radius: 6px;
+  /* font-size: ; */
+}
+
+.form-element input:focus {
+  border-style: solid;
+}
+
+.error {
+  text-align: center;
+  width: max-content;
+  margin: 10px auto;
+  padding: 3px 5px;
+  color: red;
+  background-color: rgb(255, 215, 215);
+  border-radius: 4px;
+  border: 1px solid red;
+}

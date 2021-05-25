@@ -1,0 +1,26 @@
+.old {
+  margin: 10vh 20vw;
+}
+.old label {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.old input {
+  font-size: 1.5rem;
+  border-radius: 8px;
+  border: none;
+  margin: 30px 15px 30px 0;
+}
+.old button {
+  font-size: 1.5rem;
+  padding: 5px 10px;
+}
+.old p {
+  padding: 4px;
+  color: white;
+  font-size: 2rem;
+  border: 2px solid #20204e;
+  background-color: rgba(0, 0, 0, 0.75);
+  margin-top: 5px;
+}

@@ -1,15 +1,15 @@
 const db = require("../database/db");
 
-exports.insert = (username, password, cb) => {
-  const query = "INSERT INTO users (username,password) VALUES (?,?)";
-  db.query(query, [username, password], (err, result, fields) => {
-    if (err) cb(err);
+exports.insert = async (email, username, password, cb) => {
+  const query = "INSERT INTO users (email,username,password) VALUES (?,?,?)";
+  db.query(query, [email, username, password], (err, result, fields) => {
+    cb(err);
   });
 };
 
-exports.findUser = (username, cb) => {
-  const query = "SELECT * FROM users WHERE username = ?";
-  db.query(query, [username], (err, result) => {
-    cb(err, result);
+exports.findUser = (email, cb) => {
+  const query = "SELECT * FROM users WHERE email = ?";
+  db.query(query, [email], (err, result) => {
+    cb(err, result ? result[0] : null);
   });
 };

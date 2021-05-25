@@ -1,0 +1,21 @@
+#login-signup a {
+  margin: 20px;
+  text-decoration: none;
+  background-color: white;
+  color: rgb(32, 32, 78);
+  text-align: center;
+  border-style: none;
+  font-size: larger;
+  font-weight: 700;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#login-signup a:hover {
+  background-color: rgb(50, 50, 128);
+  color: rgb(255, 255, 255);
+}
+
+.username {
+  font-size: 3rem;
+}

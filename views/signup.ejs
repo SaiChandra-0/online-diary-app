@@ -2,19 +2,29 @@
 <%- include("./includes/navigation.ejs") %>
 
   
-
-    <form action="/auth/signup" method="post">
-        <div class="mb-3">
-            <label for="username" class="form-label">User Name</label>
-            <input type="text" class="form-control" id="username" name="username">
-            
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-        </div>
- 
-        <button type="submit" class="btn btn-primary">Create Account</button>
-    </form>  
+    <% if(error){ %>
+        <div class="error"> User or email Already exists </div>
+    <% } %>
+    <div class="card">
+        <h1> Create an Account </h1>
+        <form action="/auth/signup" method="post">
+            <div class="form-element">
+                <label for="username" class="form-label">User Name</label>
+                <input type="text"  id="username" name="username" required minlength="6" maxlength="20">
+            </div>
+            <div class="form-element">
+                    <label for="email" class="form-label">Email id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="email"  id="username" name="email" required>
+                </div>
+            <div class="form-element">
+                <label for="password" class="form-label">Password &nbsp; </label>
+                <input type="password"  id="password" name="password" required minlength="8" maxlength="80">
+            </div>
+            <button type="submit" class="btn">Create an Account</button>
+        </form><br/>
+    </div>
+    <div class="switch-login-signup">
+        <a href="/auth/login" class="switch-login-signup">Already have an account? Login</a>
+    </div>
 <%- include("./includes/footer.ejs") %>
 

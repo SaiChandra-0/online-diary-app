@@ -1,40 +1,40 @@
 const bcrypt = require("bcrypt");
 const authModel = require("../models/auth");
 exports.getLogin = (req, res) => {
-  res.render("login");
+  res.render("login", { error: false });
 };
 
 exports.getSignup = (req, res) => {
-  res.render("signup");
+  res.render("signup", { error: false });
 };
 
 exports.postLogin = (req, res) => {
-  authModel.findUser(req.body.username, (err, result) => {
+  authModel.findUser(req.body.email, (err, result) => {
     if (err) {
       return res.send("<h1>error</h1>");
     }
-    if (result.length === 0) {
-      return res.redirect("/auth/signup");
+    if (result === undefined || result === null) {
+      return res.render("login", { error: true });
     }
-    bcrypt.compare(req.body.password, result[0].password, (err, doMatch) => {
+    bcrypt.compare(req.body.password, result.password, (err, doMatch) => {
       if (!doMatch) {
-        return res.redirect("/auth/login");
+        return res.render("login", { error: true });
       }
       req.session.isLoggedIn = true;
-      req.session.username = req.body.username;
-      req.session.userId = result[0].id;
+      req.session.username = result.username;
+      req.session.userId = result.id;
       res.redirect("/");
     });
   });
 };
 
-exports.postSignup = (req, res) => {
-  bcrypt.hash(req.body.password, 12, (err, hashedPassword) => {
-    authModel.insert(req.body.username, hashedPassword, (err) => {
-      if (err) return res.send("<h1>error</h1>");
-    });
+exports.postSignup = async (req, res) => {
+  // console.log(req.body);
+  const hashedPassword = await bcrypt.hash(req.body.password, 12);
+  authModel.insert(req.body.email, req.body.username, hashedPassword, (err) => {
+    if (err) return res.render("signup", { error: true });
+    else res.redirect("/auth/login");
   });
-  res.redirect("/auth/login");
 };
 
 exports.logout = (req, res) => {

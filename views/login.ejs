@@ -1,18 +1,24 @@
 <%- include("./includes/head.ejs") %>
 <%- include("./includes/navigation.ejs") %>
+    <% if(error){ %>
+        <div class="error"> Entered User Name or Password is wrong. Try again </div>
+    <% } %>
+    <div class="card">
+        <h1> Login </h1>
+        <form action="/auth/login" method="post">
+            <div class="form-element">
+                <label for="email" class="form-label">Email id&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="email"  id="email" name="email" required>
+            </div>
+            <div class="form-element">
+                <label for="password" class="form-label">Password</label>
+                <input type="password"  id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form> <br/>
+    </div>
+    <div class="switch-login-signup">
+        <a href="/auth/signup" class="switch-login-signup">New User? Create an Account</a>
+    </div>
 
-
-
-    <form action="/auth/login" method="post">
-        <div class="mb-3">
-            <label for="username" class="form-label">User Name</label>
-            <input type="text" class="form-control" id="username" name="username">
-            
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>    
 <%- include("./includes/footer.ejs") %>
